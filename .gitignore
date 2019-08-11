@@ -38,3 +38,6 @@ build/resources/main/application\.properties
 \.gradle/buildOutputCleanup/cache\.properties
 
 \.gradle/buildOutputCleanup/outputFiles\.bin
+/bin/
+*.classpath
+*.project
