@@ -1,17 +1,15 @@
 package com.example.articulos.model;
 
-// Entidad a representar en REST
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import java.util.Date;
 import org.hibernate.annotations.GenericGenerator;
 // import org.hibernate.annotations.Size;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity

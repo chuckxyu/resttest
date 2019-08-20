@@ -8,9 +8,7 @@ import javax.validation.Valid;
 
 import com.example.articulos.exception.ResourceNotFoundException;
 import com.example.articulos.model.Articulo;
-import com.example.articulos.model.User;
 import com.example.articulos.repository.ArticuloRepository;
-import com.example.articulos.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

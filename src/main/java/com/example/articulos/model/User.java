@@ -1,19 +1,39 @@
 package com.example.articulos.model;
 
-import javax.persistence.*;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "user")
 public class User {
-    private Long id;
-    private String username;
-    private String password;
-    private String passwordConfirm;
-    private Set<Role> roles;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(nullable = false)
+    private String username;
+
+    @Column(nullable = false)
+    private String email;
+    @Column(nullable = false)
+    private String password;
+
+    @Transient
+    private String passwordConfirm;
+
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
+
     public Long getId() {
         return id;
     }
@@ -38,7 +58,6 @@ public class User {
         this.password = password;
     }
 
-    @Transient
     public String getPasswordConfirm() {
         return passwordConfirm;
     }
@@ -47,14 +66,20 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
-    @ManyToMany
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     public Set<Role> getRoles() {
         return roles;
     }
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }
