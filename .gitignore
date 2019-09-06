@@ -41,3 +41,6 @@ build/resources/main/application\.properties
 /bin/
 *.classpath
 *.project
+/.gradle/
+/.settings/
+/build/
